@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+
   resources :users
 
   get 'users/new'
@@ -16,6 +18,12 @@ Rails.application.routes.draw do
   get '/contact', to: 'static_pages#contact'
 
   get '/signup', to: 'user#new'
+
+  get '/login', to: 'sessions#new'
+
+  get '/login', to: 'sessions#create'
+
+  get '/logout', to: 'sessions#destroy'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
